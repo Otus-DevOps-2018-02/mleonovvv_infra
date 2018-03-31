@@ -30,3 +30,17 @@ Host someinternalhost
   ProxyCommand ssh bastion_IP nc %h %p
 ```
 Выполнить команду: `ssh someinternalhost`
+
+### Homework-5. cloud-testapp
+
+#### Реквизиты подключения:
+```
+testapp_IP = 35.204.246.90
+testapp_port = 9292 
+```
+
+#### Комманда для запуска инстанса со startup-script:
+`gcloud compute instances create reddit-app --boot-disk-size=10GB --image-family ubuntu-1604-lts --image-project=ubuntu-os-cloud --machine-type=g1-small --tags puma-server --restart-on-failure --metadata-from-file startup-script=kickstart.sh`
+
+#### Комманда для создания правила брандмауэра
+`gcloud compute firewall-rules create default-puma-server --allow=tcp:9292 --source-ranges=0.0.0.0/0 --target-tags=puma-server`
