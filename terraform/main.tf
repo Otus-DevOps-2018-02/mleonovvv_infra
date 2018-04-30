@@ -4,10 +4,15 @@ provider "google" {
   region  = "${var.region}"
 }
 
+resource "google_compute_project_metadata_item" "default" {
+  key   = "ssh-keys"
+  value = "appuser:${file(var.public_key_path)} appuser1:${file(var.public_key_path)}"
+}
+
 resource "google_compute_instance" "app" {
   name         = "reddit-app"
   machine_type = "g1-small"
-  zone         = "europe-west1-b"
+  zone         = "${var.zone}"
   tags         = ["reddit-app"]
 
   # определение загрузочного диска
@@ -18,7 +23,7 @@ resource "google_compute_instance" "app" {
   }
 
   metadata {
-    ssh-keys = "appuser:${file(var.public_key_path)} appuser1:${file(var.public_key_path)}"
+    ssh-keys = "appuser:${file(var.public_key_path)}"
   }
 
   network_interface {
@@ -55,3 +60,4 @@ resource "google_compute_firewall" "firewall_puma" {
   source_ranges = ["0.0.0.0/0"]
   target_tags   = ["reddit-app"]
 }
+
