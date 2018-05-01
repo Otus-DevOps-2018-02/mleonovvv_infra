@@ -1,0 +1,17 @@
+---
+- name: Install ruby
+  hosts: all
+  become: true
+  tasks:
+
+   - name: Install ruby 
+     apt: 
+       name: "{{ item }}"
+       update_cache: yes
+     with_items:
+       - ruby-full
+       - ruby-bundler
+       - build-essential
+
+#cd ~/ && git clone -b monolith https://github.com/express42/reddit.git
+#cd ~/reddit && bundle install
