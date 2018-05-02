@@ -20,7 +20,7 @@
   notify: reload puma
 
 - name: enable puma
-  systemd: 
+  systemd:
     name: puma
     enabled: yes
 
