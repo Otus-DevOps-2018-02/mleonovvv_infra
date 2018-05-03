@@ -1,4 +1,7 @@
 {
  "machine_type": "machine type",
- "ssh_username": "your ssh username"
+ "ssh_username": "your ssh username",
+ "project_id": "infra-777",
+ "source_image_family": "reddit-base"
 }
+

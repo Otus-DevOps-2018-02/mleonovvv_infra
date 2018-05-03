@@ -1,0 +1,11 @@
+[Unit]
+Description=my little puma
+
+[Service]
+ExecStart=/usr/local/bin/puma --dir /home/appuser/reddit --pidfile /var/run/puma.pid
+Restart=on-failure
+
+PIDFile=/var/run/puma.pid
+
+[Install]
+WantedBy=default.target

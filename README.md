@@ -44,3 +44,9 @@ testapp_port = 9292
 
 #### Комманда для создания правила брандмауэра
 `gcloud compute firewall-rules create default-puma-server --allow=tcp:9292 --source-ranges=0.0.0.0/0 --target-tags=puma-server`
+
+### Homework-7. terraform-1
+
+Создано описание создания ВМ экземпляра base-app и правило firewall
+
+

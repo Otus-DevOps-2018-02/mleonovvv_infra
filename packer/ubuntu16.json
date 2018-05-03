@@ -23,7 +23,7 @@
   "provisioners": [
     {
       "type": "shell",
-      "script": [
+      "scripts": [
         "scripts/install_ruby.sh",
         "scripts/install_mongodb.sh"
       ],
