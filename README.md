@@ -37,7 +37,7 @@ Host someinternalhost
 
 #### Реквизиты подключения:
 ```
-testapp_IP = 35.204.4.33
+testapp_IP = 35.204.246.90
 testapp_port = 9292 
 ```
 
