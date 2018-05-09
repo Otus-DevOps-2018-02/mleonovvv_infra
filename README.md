@@ -2,6 +2,7 @@
 mleonovvv Infra repository
 
 ### Homework-4. cloud-bastion
+-------
 
 Реквизиты для подключения к bastion
 ```
@@ -32,6 +33,7 @@ Host someinternalhost
 Выполнить команду: `ssh someinternalhost`
 
 ### Homework-5. cloud-testapp
+-------
 
 #### Реквизиты подключения:
 ```
@@ -46,7 +48,15 @@ testapp_port = 9292
 `gcloud compute firewall-rules create default-puma-server --allow=tcp:9292 --source-ranges=0.0.0.0/0 --target-tags=puma-server`
 
 ### Homework-7. terraform-1
+-------
 
 Создано описание создания ВМ экземпляра base-app и правило firewall
 
+### Homework-9. ansible-1
+-------
 
+При повторном выполнении команды `git` была сохранена идемпотентность и измненений не произошло в виду наличия актуального клона репозитория. После удаления репозитория и выполнения плейбука заного произошли изменения.
+
+#### Что сделано ####
+ - Созданы три инвентори файла: ini, yaml, json + скрипт
+ - Создан playbook с задачей клоинирования репозитория
