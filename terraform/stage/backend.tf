@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
     bucket = "appuniq111-bucket-test"
-    prefix = "terraform/state"
+    prefix = "terraform/state/stage"
   }
 }
