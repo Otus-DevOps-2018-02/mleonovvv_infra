@@ -54,5 +54,4 @@ resource "google_compute_firewall" "firewall_mongo" {
 
 data "template_file" "mongod" {
   template = "${file("${path.module}/files/mongod.conf.tpl")}"
-
 }

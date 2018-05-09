@@ -1,11 +1,11 @@
-
 resource "google_compute_instance" "app" {
   name         = "reddit-app"
   machine_type = "g1-small"
   zone         = "${var.zone}"
-  tags         = [
-  "reddit-app",
-  "default-allow-ssh"
+
+  tags = [
+    "reddit-app",
+    "default-allow-ssh",
   ]
 
   boot_disk {
@@ -39,6 +39,7 @@ resource "google_compute_instance" "app" {
     script = "${path.module}/files/deploy.sh"
   }
 }
+
 data "template_file" "puma" {
   template = "${file("${path.module}/files/puma.service")}"
 
