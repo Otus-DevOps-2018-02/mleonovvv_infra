@@ -1,0 +1,32 @@
+{
+  "builders": [
+    {
+    "type": "googlecompute",
+    "project_id": "{{user `project_id`}}",
+    "ssh_username": "{{user `ssh_username`}}",
+    "image_name": "db-base-{{timestamp}}",
+    "image_family": "db-base",
+    "source_image_family": "{{user `source_image_family`}}",
+    "zone": "europe-west1-b",
+    "machine_type": "{{user `machine_type`}}",
+    "image_description": "Base mongodb baked-image.",
+    "disk_size": "10",
+    "disk_type": "pd-standard",
+    "network": "default",
+    "tags": [
+  	"puma-server",
+  	"db-base",
+  	"packer"
+]
+    }
+],
+  "provisioners": [
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/install_mongodb.sh"
+      ],
+      "execute_command": "sudo {{.Path}}"
+    }
+  ]
+}

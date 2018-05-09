@@ -1,0 +1,32 @@
+{
+  "builders": [
+    {
+    "type": "googlecompute",
+    "project_id": "{{user `project_id`}}",
+    "ssh_username": "{{user `ssh_username`}}",
+    "image_name": "app-base-{{timestamp}}",
+    "image_family": "app-base",
+    "source_image_family": "{{user `source_image_family`}}",
+    "zone": "europe-west1-b",
+    "machine_type": "{{user `machine_type`}}",
+    "image_description": "Base app baked-image. Include ruby",
+    "disk_size": "10",
+    "disk_type": "pd-standard",
+    "network": "default",
+    "tags": [
+  	"puma-server",
+  	"app-base",
+  	"packer"
+]
+    }
+],
+  "provisioners": [
+    {
+      "type": "shell",
+      "scripts": [
+        "scripts/install_ruby.sh"
+      ],
+      "execute_command": "sudo {{.Path}}"
+    }
+  ]
+}
