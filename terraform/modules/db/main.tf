@@ -22,14 +22,14 @@ resource "google_compute_instance" "db" {
     private_key = "${file(var.private_key_path)}"
   }
 
-  provisioner "file" {
-    content     = "${data.template_file.mongod.rendered}"
-    destination = "/tmp/mongod.conf"
-  }
-
-  provisioner "remote-exec" {
-    script = "${path.module}/files/deploy.sh"
-  }
+  #  provisioner "file" {
+  #    content     = "${data.template_file.mongod.rendered}"
+  #    destination = "/tmp/mongod.conf"
+  #  }
+  #
+  #  provisioner "remote-exec" {
+  #    script = "${path.module}/files/deploy.sh"
+  #  }
 
   metadata {
     ssh-keys = "appuser:${file(var.public_key_path)}"
